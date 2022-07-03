@@ -12,3 +12,12 @@ function debounce(func, wait = 20, immediate = true) {
       if (callNow) func.apply(context, args);
     };
   }
+const sliderImages = document.querySelectorAll(".slide-in");
+
+function checkSlide(e) {
+    sliderImages.forEach(slideImage => {
+        const slideInAt = (window.scrollY + window.innerHeight) - slideImage.height / 2;
+        console.log(slideInAt)
+    })
+}
+window.addEventListener("scroll", debounce(checkSlide));
